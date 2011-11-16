@@ -1,0 +1,258 @@
+<html>
+  <head><title>Currency converter by xro7</title></head>
+  <body>
+        <h1>Currency converter by xro7</h1> <h2>Πολυχρόνης Χαριτίδης</h2>
+	<img src="resources/cc.jpg" alt="money" />
+   	<form method= "POST"
+	    action = "convert.do"
+	     name="form"
+	     id="myform"
+	    onsubmit="return TestDataCheck()">
+	    
+	    Insert amount:
+	    <input type="text" name="amount" id="xro"/>
+	    From:
+	    <select name ="currency1"size="1"id="opt">
+		<option>AED
+		<option>ARS
+		<option>AUD
+		<option>BGN
+		<option>BND
+		<option>BOB
+		<option>BRL
+		<option>CAD
+		<option>CHF
+		<option>CLP
+		<option>CNY
+		<option>COP
+		<option>CZK
+		<option>DKK
+		<option>EGP
+		<option>EUR
+		<option>FJD
+		<option>GBP
+		<option>HKD
+		<option>HRK
+		<option>HUF
+		<option>IDR
+		<option>ILS
+		<option>INR
+		<option>JPY
+		<option>KES
+		<option>KRW
+		<option>LTL
+		<option>MAD
+		<option>MXN
+		<option>MYR
+		<option>NOK
+		<option>NZD
+		<option>PEN
+		<option>PHP
+		<option>PKR
+		<option>PLN
+		<option>RON
+		<option>RSD
+		<option>RUB
+		<option>SAR
+		<option>SEK
+		<option>SGD
+		<option>THB
+		<option>TRY
+		<option>TWD
+		<option>UAH
+		<option>USD
+		<option>VND
+		<option>ZAR
+		
+	    </select>
+            To:
+            <select name ="currency2"size="1"id="opt2">
+		<option>AED
+		<option>ARS
+		<option>AUD
+		<option>BGN
+		<option>BND
+		<option>BOB
+		<option>BRL
+		<option>CAD
+		<option>CHF
+		<option>CLP
+		<option>CNY
+		<option>COP
+		<option>CZK
+		<option>DKK
+		<option>EGP
+		<option>EUR
+		<option>FJD
+		<option>GBP
+		<option>HKD
+		<option>HRK
+		<option>HUF
+		<option>IDR
+		<option>ILS
+		<option>INR
+		<option>JPY
+		<option>KES
+		<option>KRW
+		<option>LTL
+		<option>MAD
+		<option>MXN
+		<option>MYR
+		<option>NOK
+		<option>NZD
+		<option>PEN
+		<option>PHP
+		<option>PKR
+		<option>PLN
+		<option>RON
+		<option>RSD
+		<option>RUB
+		<option>SAR
+		<option>SEK
+		<option>SGD
+		<option>THB
+		<option>TRY
+		<option>TWD
+		<option>UAH
+		<option>USD
+		<option>VND
+		<option>ZAR
+	    </select>
+		<button type="button" onclick="swap()">Swap</button>
+		
+	    
+	     
+	    <button type="SUBMIT">Compute</button>
+	</form>
+
+	<form method= "POST" action = "redirect.do">
+		<button  id = "button2" type="SUBMIT"  onmouseout="details2('?')" onmouseover="details2('Show me the Report!')">?</button>
+	
+	
+	<a href="http://xro7.net46.net/www/converter.rar"><button id="button" onmouseout="details('!')" onmouseover="details('Download the Code!')">!</button></a>
+	</form>
+<hr />
+CurrencyCode,CurrencyName
+<ul>
+
+
+<li>AED,United Arab Emirates Dirham
+<li>ARS,Argentine Peso
+<li>AUD,Australian Dollar
+<li>BGN,Bulgarian Lev
+<li>BND,Brunei Dollar
+<li>BOB,Bolivian Boliviano
+<li>BRL,Brazilian Real
+<li>CAD,Canadian Dollar
+<li>CHF,Swiss Franc
+<li>CLP,Chilean Peso
+<li>CNY,Chinese Yuan Renminbi
+<li>COP,Colombian Peso
+<li>CZK,Czech Republic Koruna
+<li>DKK,Danish Krone
+<li>EGP,Egyptian Pound
+<li>EUR,Euro
+<li>FJD,Fijian Dollar
+<li>GBP,British Pound Sterling
+<li>HKD,Hong Kong Dollar
+<li>HRK,Croatian Kuna
+<li>HUF,Hungarian Forint
+<li>IDR,Indonesian Rupiah
+<li>ILS,Israeli New Sheqel
+<li>INR,Indian Rupee
+<li>JPY,Japanese Yen
+<li>KES,Kenyan Shilling
+<li>KRW,South Korean Won
+<li>LTL,Lithuanian Litas
+<li>MAD,Moroccan Dirham
+<li>MXN,Mexican Peso
+<li>MYR,Malaysian Ringgit
+<li>NOK,Norwegian Krone
+<li>NZD,New Zealand Dollar
+<li>PEN,Peruvian Nuevo Sol
+<li>PHP,Philippine Peso
+<li>PKR,Pakistani Rupee
+<li>PLN,Polish Zloty
+<li>RON,Romanian Leu
+<li>RSD,Serbian Dinar
+<li>RUB,Russian Ruble
+<li>SAR,Saudi Riyal
+<li>SEK,Swedish Krona
+<li>SGD,Singapore Dollar
+<li>THB,Thai Baht
+<li>TRY,Turkish Lira
+<li>TWD,New Taiwan Dollar
+<li>UAH,Ukrainian Hryvnia
+<li>USD,US Dollar
+<li>VND,Vietnamese Dong
+<li>ZAR,South African Ran
+</ul>
+
+<script type="text/javascript">
+function TestDataCheck()
+{
+	tagInput = document.getElementById('xro');
+	totalChar = tagInput.value;
+	if (isNaN(totalChar)){
+		alert("Oooops wrong input!");
+   		returnval = false;
+		return returnval;
+	}
+	var am =parseFloat(totalChar);
+
+ 	 var returnval;
+
+  	 if ( am >=0 &&am<999999999999) {
+   		returnval = true;
+    	 }
+  		else if(am<0){
+		alert("Oooops negative number!");
+   		returnval = false;
+    	 }
+  	 else{
+   		alert("Ooooops too big number or no input!!");
+   		returnval = false;
+   	}	
+
+	return returnval;
+}
+function swap(){
+	var s1;
+	var s2;
+	var myselect=document.getElementById("opt");
+	for (var i=0; i<myselect.options.length; i++){
+ 		if (myselect.options[i].selected==true){
+ 			 s1=i;
+  			break
+ 		}
+	}
+
+	var myselect2=document.getElementById("opt2")
+	for (var i=0; i<myselect.options.length; i++){
+ 		if (myselect2.options[i].selected==true){
+ 			 s2=i
+  			break
+ 		}
+	}
+	myselect.options[s2].selected="1"
+	myselect2.options[s1].selected="1"
+
+}
+
+function details(text){
+
+	button.innerHTML=text
+
+}
+
+function details2(text){
+
+	button2.innerHTML=text
+
+}
+
+
+document.write("<p>" + Date() + "</p>");
+</script>
+  </body>
+</html>

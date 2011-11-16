@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+ 
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+   version="2.5">
+ 
+    <display-name>Currency Converter by xro7</display-name>
+ 
+   <servlet>
+      <servlet-name>currencyConverter</servlet-name>
+      <servlet-class>ex.ccServlet</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>redirect</servlet-name>
+      <servlet-class>ex.RedirectServlet</servlet-class>
+   </servlet>
+ 
+ 
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+ 
+   <servlet-mapping>
+      <servlet-name>currencyConverter</servlet-name>
+      <url-pattern>/convert.do</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>redirect</servlet-name>
+      <url-pattern>/redirect.do</url-pattern>
+   </servlet-mapping>
+
+
+  <context-param>
+      <param-name>report</param-name>
+      <param-value>http://xro7.wordpress.com/2011/11/14/project-2-report/</param-value>
+   </context-param>
+
+
+
+  <listener>
+      <listener-class>ex.ccServletListener</listener-class>
+      
+   </listener>
+</web-app>
